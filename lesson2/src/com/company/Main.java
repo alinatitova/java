@@ -96,4 +96,13 @@ public class Main {
         float usd=sum/1.96f;
         return usd;
     }
+
+
+
+
+
+
+
+
+
 }
