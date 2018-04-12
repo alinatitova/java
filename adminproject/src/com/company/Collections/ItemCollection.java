@@ -26,17 +26,20 @@ public class ItemCollection {
         } return items;
 
     }
-    public static int addItem (Item item) throws SQLException {
+    public static long addItem (Item item) throws SQLException {
         PreparedStatement ps= AppConnection.conn.prepareStatement("INSERT INTO items (name, description, price, image) VALUES (?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
         ps.setString (1,item.name);
         ps.setString (2,item.description);
         ps.setFloat (3, item.price);
         ps.setString (4, item.image);
+        ps.executeUpdate();
 
-        return ps.executeUpdate();
+        ResultSet rs = ps.getGeneratedKeys();
+        if (rs.next()) {
+            return rs.getLong(1);
+        }
 
-
-
+        return -1;
     }
     public static boolean updateItem (Item item) throws SQLException {
         PreparedStatement ps= AppConnection.conn.prepareStatement("UPDATE items SET name=?, description=?, price=?, image=? WHERE id=?");

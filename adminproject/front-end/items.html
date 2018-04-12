@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script SRC="assets/js/query.js"></script>
+    <script SRC="assets/js/items.js"></script>
+    <title>Document</title>
+
+</head>
+<body>
+<form>
+    <input id="name" placeholder="Name">
+    <input id="description" placeholder="Description">
+    <input id="price" type="number" placeholder="Price">
+    <input id="image" placeholder="Image">
+    <img id="img" width="320" height="240" />
+
+    <button type="button" onclick="save()">Save</button>
+</form>
+<table border="1">
+    <thead>
+            <th> ID </th>
+            <th> Название </th>
+            <th> Описание </th>
+            <th> Фото </th>
+            <th> Цена </th>
+            <th colspan="2"> Действия </th>
+
+    </thead>
+    <tbody id="items"></tbody>
+</table>
+</body>
+</html>
